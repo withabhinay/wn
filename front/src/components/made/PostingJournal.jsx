@@ -72,11 +72,11 @@ export default function PostingJournal({setAuthToken, authToken}) {
   };
   
     return (
-        <div className="min-h-screen  flex flex-col">
+        <div className="min-h-screen bg-black flex flex-col">
           <NavBar/>
-          <main className="flex-grow container mx-auto">
+          <main className="flex-grow my-5 container mx-auto">
             <ProfileBar/>
-            <form onSubmit={handleSubmit} className="bg-gray-800 p-6 rounded-lg">
+            <form onSubmit={handleSubmit} className="bg-gray-800 p-6 mt-5 rounded-lg">
               <h2 className="text-xl font-bold text-white mb-4">What's on your mind today?</h2>
               <div className="space-y-4">
                 <div>
