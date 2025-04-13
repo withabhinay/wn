@@ -6,7 +6,9 @@ import { Button } from '../ui/button'
 import Footerr from './Footerr'
 import { BACKEND_URL } from '../../config';
 import toast from 'react-hot-toast';
-export default function PostingJournal({setAuthToken, authToken}) {
+import { useNavigate } from 'react-router-dom';
+export default function PostingJournal() {
+   const navigate = useNavigate();
     const [Title, setTitle] = useState('')
     const [Description, setDescription] = useState('')
     const [isLoading, setIsLoading] = useState(false);
@@ -59,7 +61,7 @@ export default function PostingJournal({setAuthToken, authToken}) {
           toast(`Authenticity: ${topResult.label} (${(topResult.score * 100).toFixed(2)}%)`, {
               icon: topResult.label === "Real" ? "✅" : "⚠️"
           });
-  
+          navigate('/dashboard');
           // Clear form inputs
           setTitle('');
           setDescription('');
@@ -100,12 +102,11 @@ export default function PostingJournal({setAuthToken, authToken}) {
                 </div>
                 <Button type="submit" className="w-full bg-green-500 hover:bg-green-600 p-2" disabled={isLoading}>
                   {isLoading ? 'Publishing...' : 'Publish Journal'}
+
                 </Button>
               </div>
             </form>
           </main>
-       
-        
         </div>
       )
 }
